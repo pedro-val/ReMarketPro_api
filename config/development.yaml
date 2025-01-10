@@ -19,9 +19,10 @@ server:
   # Port on which the server will listen. the server binding is 0.0.0.0:{PORT}
   port: 5150
   # Binding for the server (which interface to bind to)
-  binding: localhost
+  # binding: 0.0.0.0
   # The UI hostname or IP address that mailers will point to.
-  host: http://localhost
+  # host: localhost
+  host: http://0.0.0.0
   # Out of the box middleware configuration. to disable middleware you can changed the `enable` field to `false` of comment the middleware block
   middlewares:
 
@@ -40,7 +41,7 @@ mailer:
   # SMTP mailer configuration.
   smtp:
     # Enable/Disable smtp mailer.
-    enable: true
+    enable: false
     # SMTP server host. e.x localhost, smtp.gmail.com
     host: localhost
     # SMTP server port
@@ -63,7 +64,7 @@ mailer:
 # Database Configuration
 database:
   # Database connection URI
-  uri: {{ get_env(name="DATABASE_URL", default="postgres://loco:loco@localhost:5432/remarketpro_api_development") }}
+  uri: {{ get_env(name="DATABASE_URL", default="postgres://user:password@db:5432/remarketpro_db") }}
   # When enabled, the sql query will be logged.
   enable_logging: false
   # Set the timeout duration when acquiring a connection.
